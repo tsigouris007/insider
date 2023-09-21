@@ -25,4 +25,8 @@ WORKDIR /
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+RUN adduser -D -g '' user
+USER user
+WORKDIR /home/user
+
 ENTRYPOINT ["/entrypoint.sh"]
