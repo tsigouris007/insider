@@ -13,8 +13,10 @@ OUTPUT_FILE_HTML="${WORKDIR}/report.insider.html"
 insider "$@"
 
 # Copy the report.html file to the host as is
-mv $DEFAULT_OUTPUT_JSON "${OUTPUT_FILE_JSON}"
 mv $DEFAULT_OUTPUT_HTML "${OUTPUT_FILE_HTML}"
 
-# Format the json reports
-python /report.py -i $OUTPUT_FILE_JSON -o $OUTPUT_FILE_JSON
+# Format the final json report
+python /report.py -i $DEFAULT_OUTPUT_JSON -o $OUTPUT_FILE_JSON
+
+# Move the default json report
+mv $DEFAULT_OUTPUT_JSON "${OUTPUT_FILE_JSON_O}"
